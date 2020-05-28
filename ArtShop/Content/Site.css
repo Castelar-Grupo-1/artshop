@@ -430,3 +430,10 @@ form.signin input::-webkit-input-placeholder {
     .button:hover {
         background: #ddd;
     }
+imagenes {
+    width: 100px;
+    height: 178px;
+    object-fit:contain;
+    border:1px solid black;
+
+    }
