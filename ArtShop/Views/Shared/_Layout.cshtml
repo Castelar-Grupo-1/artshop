@@ -5,37 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Artshop</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("ArtShop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div> </div>
+<body onload="showSession()">
+    <div class="contenedor">
+        <header class="cabecera">
+            <h1 id="titulo"> ArtShop</h1>
+            <a href="javascript:Logout()" class="logout-window"> / Logout</a>
+            <a href="#login-box" class="login-window">Login</a>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Artshop</p>
+            <div id="ctrl_storage">
+                <p id="Suser"></p>
+            </div>
+
+            <p id="subtitulo">Galeria de Arte</p>
+
+            <div id="login-box" class="login-popup">
+                <a href="~/Home/Index" class="close"><img src="~/Content/image/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
+                <form method="post" class="signin" action="">
+                    <fieldset class=" textbox">
+                        <label class="username">
+                            <span>Username or email</span>
+                            <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
+                        </label>
+                        <label class="password">
+                            <span>Password</span>
+                            <input id="password" name="password" value="" type="password" placeholder="Password">
+                        </label>
+
+                        <button id="login2" class="submit button" type="button">Ingresar</button>
+
+                        <p>
+                            <a class="forgot" href="~/Home/Index">Olvido su clave?</a>
+                        </p>
+                    </fieldset>
+                </form>
+            </div>
+
+            <nav>
+                <div class="menu" id="uno">
+                    <a href="~/Home/Index">
+                        <img class="icon" src="~/Content/image/icon1.png">
+                    </a>
+                    <p class="texto">Cuadros Destacados</p>
+                    <ul>
+                        <a id="Reserva_Item1" class="texto" href="~/Reserva/Index"></a>
+               
+
+                    </ul>
+                </div>
+
+                <div class="menu" id="dos">
+                    <a href="~/Home/Index">
+                        <img class="icon" src="~/Content/image/icon2.png">
+                    </a>
+                    <p class="texto">Catalogo de Cuadros</p>
+                    <ul>
+                        <li>
+                            <a id="Reserva_Item1" class="texto" href="~/Reserva/Index"></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu" id="tres">
+                    <!-- <a href="~/Genero/Index" class="menu_genero">-->
+                    <a href="#" class="menu_genero">
+                        <img class="icon" src="~/Content/image/icon3.png">
+                    </a>
+                    <p class="texto">ABM</p>
+                    <ul>
+                        <li>
+                            <a id="ABM_Item1" class="texto" href="~/Genero/Index"></a>
+                            <a id="ABM_Item2" class="texto" href="~/Cuadros/Index"></a>
+                            <a id="ABM_Item3" class="texto" href="~/Autor/Index"></a>
+                            <a id="ABM_Item4" class="texto" href="~/Otro/Index"></a>
+                        </li>
+                    </ul>
+
+
+                </div>
+
+                <div class="menu" id="cuatro">
+                    <a href="~/Home/Index">
+                        <img class="icon" src="~/Content/image/icon4.png">
+                    </a>
+                    <p class="texto">Solicitar Cuadro</p>
+                </div>
+
+                <div class="menu" id="cinco">
+                    <a href="~/Home/Nosotros">
+                        <img class="icon" src="~/Content/image/icon5.png">
+                    </a>
+                    <p class="texto">Quienes somos</p>
+
+                </div>
+
+                <div class="menu" id="seis">
+                    <a href="~/Home/Contacto">
+                        <img class="icon" src="~/Content/image/icon6.png">
+                    </a>
+                    <p class="texto">Contactenos</p>
+                </div>
+            </nav>
+
+        </header>
+        <section>
+            <div class="contenedor">
+
+                @RenderBody()
+            </div>
+
+        </section>
+
+   
+        <footer class="pie">
+            <p>  &copy; @DateTime.Now.Year - Copyright Universidad Abierta Interamericana </p>
         </footer>
+
     </div>
 
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+
 </body>
 </html>
